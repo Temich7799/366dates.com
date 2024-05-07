@@ -6,8 +6,10 @@ import NewUserFormInitial from '@/components/organisms/NewUserFormInitial/NewUse
 import UsersTable from '@/components/organisms/UsersTable/UsersTable';
 import { User } from '@/ts/UserType';
 import calculateDaysUntilBirthday from '@/utils/calculateDaysUntilBirthday';
-import NoUsersWrapper from '@/components/molecules/NoUsersWrapper/NoUsersWrapper';
 import { useTranslation } from '../../../../i18n';
+import Header from '@/components/molecules/Header/Header';
+import Link from 'next/link';
+import { Button } from '@/components/atoms/Button/Button';
 
 export const metadata = {
     title: 'Blog des Freundeskalenders - Ihre Quelle für Inspiration und einzigartige Geschichten!',
@@ -47,22 +49,23 @@ const UserPage: React.FC<PageNextProps> = async ({ params, searchParams }) => {
 
     return (
         <StyledSearchPage>
+            <Header language={language} isLogged={true}>
+                <Link href="/"><Button>{t('home')}</Button></Link>
+            </Header>
             <Text tag='h1'>Blog</Text>
             <section>
                 <NewUserFormInitial title='Add a friend' namePlaceholder={t('name_holder')} showDaysUntil={true} months={months} initialDay={currentDay as number} initialMonthIndex={currentMonthIndex as number} />
             </section>
             <section>
                 <Text tag='h2'>My friends</Text>
-                <NoUsersWrapper usersData={friendsData as User[]} actionPath='/add-friend'>
-                    <UsersTable data={friendsData as User[]} t={t} exclude={['language', 'foreign', 'another_foreign']} />
-                </NoUsersWrapper>
-                <NoUsersWrapper usersData={upcomingFriendsData || []} actionPath='/add-friend'>
-                    <UsersTable data={upcomingFriendsData || []}
-                        t={t}
-                        exclude={['language', 'foreign', 'another_foreign']}
-                        additionalColumns={[{ Header: t('days_until'), accessor: 'days_until' },]}
-                    />
-                </NoUsersWrapper>
+                <UsersTable data={friendsData as User[]} t={t} exclude={['language', 'foreign', 'another_foreign']} />
+            </section>
+            <section>
+                <UsersTable data={upcomingFriendsData || []}
+                    t={t}
+                    exclude={['language', 'foreign', 'another_foreign']}
+                    additionalColumns={[{ Header: t('days_until'), accessor: 'days_until' },]}
+                />
             </section>
         </StyledSearchPage >
     );

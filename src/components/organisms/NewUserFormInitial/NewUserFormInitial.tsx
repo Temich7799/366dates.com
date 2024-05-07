@@ -60,7 +60,7 @@ const NewUserFormInitial: React.FC<NewUserFormInitialProps> = ({ months, initial
                 <Input type="text" placeholder={namePlaceholder} required value={formData.name} onChange={onChangeNameHandler} />
                 <BirthdayInput months={months} initialMonthIndex={initialMonthIndex} initialDay={initialDay} onChangeHandler={handleChange} />
                 <Link href={currentPath + actionPath + queryString}>
-                    <Button>Continue</Button>
+                    <Button>Add</Button>
                 </Link>
             </form>
             {showDaysUntil && birthday && <DaysUntilBirthdayText birthday={birthday} />}

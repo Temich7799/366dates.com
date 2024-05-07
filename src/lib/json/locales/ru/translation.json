@@ -1,5 +1,6 @@
 {
     "sign-up": "Регистрация",
+    "sign-out":"Выйти",
     "login":"Войти",
     "name": "Имя",
     "city": "Город проживания",
@@ -30,5 +31,7 @@
     "name_holder": "Имя",
     "month_holder": "Месяц",
     "day_holder": "День",
-    "password_holder": "Пароль"
+    "password_holder": "Пароль",
+    "new_user_success": "Пользователь успешно добавлен!",
+    "new_user_error": "Этот адрес электронной почты уже существует"
 }

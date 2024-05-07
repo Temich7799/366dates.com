@@ -1,7 +1,17 @@
 .searchblock {
+
   margin-top: 40px;
   display: flex;
   flex-direction: column;
   gap: 24px;
   max-width: 80vw;
+
+  section {
+
+    margin-bottom: 25px;
+
+    table {
+      margin-bottom: 10px;
+    }
+  }
 }
