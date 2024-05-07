@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --max-width: 1280px;
+  --min-width: 320px;
+
+  --text_secondary: #4d5f71;
+
+  --font-rgb: 20 20 20;
+  --background-rgb: 255 255 255;
+  --background-secondary-rgb: 245 245 245;
+
+  --brand-rgb: 122 122 215; // rgb(122 122 215)
+  --brand-secondary-rgb: 128 128 255; // rgb(128 128 255)
+
+  --background-linear: linear-gradient(rgb(214 214 237), rgb(228 228 250), rgb(176 176 232));
+
+  --color-scheme: light;
+
+  @media (prefers-color-scheme: dark) {
+    --font-rgb: 225 225 225;
+    --background-rgb: 20 20 20;
+    --background-secondary-rgb: 38 38 38;
+
+    --brand-rgb: 178 178 255; //rgb(178 178 255)
+    --brand-secondary-rgb: 157 157 255; //rgb(157 157 255)
+
+    --background-linear: linear-gradient(rgb(46 46 71), rgb(18 18 36), rgb(34 34 82));
+    --color-scheme: dark;
+  }
+}
+
+html {
+  font-size: 16px;
+
+  @media (max-width: 680px) {
+    font-size: 14px;
+  }
+}
+
+body {
+  margin: 0;
+  max-width: 100vw;
+  padding-bottom: 10%;
+  overflow-x: hidden;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  color: rgb(var(--font-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+main {
+
+  width: 100vw;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5%;
+
+  @media (max-width: 768px) {
+    align-items: start;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.CookieConsent {
+
+  background-color: rgba(var(--brand-secondary-rgb)) !important;
+
+  button {
+    // background-color: rgba(var(--background-rgb)) !important;
+    font-size: medium;
+    font-weight: 600;
+    font-family: 'Montserrat';
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+}

@@ -1,0 +1,40 @@
+.table {
+    width: 100%;
+    table-layout: fixed;
+    text-align: center;
+    word-wrap: break-word;
+    border: 1px solid rgba(var(--background-secondary-rgb));
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow-y: auto;
+
+    tr,
+    td,
+    th {
+        border: 1px solid rgba(var(--background-secondary-rgb));
+    }
+
+    th {
+        padding: 4px;
+    }
+
+    tbody{
+        height: 400px; 
+    }
+
+    td {
+        padding: 12px;
+        font-size: small;
+    }
+}
+
+.pagination {
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    >* {
+        margin: 0 5px;
+    }
+}

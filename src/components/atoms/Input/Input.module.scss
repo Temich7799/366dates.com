@@ -1,0 +1,78 @@
+.inputBlock {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  label {
+    font-size: small;
+  }
+}
+
+.input {
+  width: 100%;
+  min-width: 150px;
+  padding: 12px 12px;
+  border: 1px solid rgba(var(--background-rgb));
+  background: rgba(var(--background-rgb));
+  color: rgba(var(--font-rgb));
+  font-size: medium;
+  font-family: 'Montserrat';
+  border-radius: 8px;
+  outline: none;
+
+  &:focus {
+    outline: none;
+    border: 1px solid rgba(var(--font-rgb));
+    border-color: rgba(var(--brand-rgb));
+  }
+
+  &:active {
+    outline: none;
+    border-color: rgba(var(--brand-rgb));
+  }
+}
+
+.select {
+  width: 100%;
+  min-width: 150px;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  padding: 12px 12px;
+  font-size: medium;
+  color: rgba(var(--font-rgb));
+  border-radius: 8px;
+  border: 1px solid rgba(var(--background-rgb));
+  background-color: rgba(var(--background-rgb));
+  cursor: pointer;
+  outline: none;
+
+  &:focus {
+    outline: none;
+    border: 1px solid rgba(var(--font-rgb));
+    border-color: rgba(var(--brand-rgb));
+  }
+
+  &:active {
+    outline: none;
+    border-color: rgba(var(--brand-rgb));
+  }
+
+  option {
+    color: rgba(var(--font-rgb));
+  }
+
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: rgba(var(--background-secondary-rgb));
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(var(--brand-rgb));
+  }
+}

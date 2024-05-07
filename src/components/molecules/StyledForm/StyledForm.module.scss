@@ -1,0 +1,63 @@
+.formWrapper {
+
+    @media(max-width: 768px) {
+        width: 100%;
+    }
+
+    form {
+
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        gap: 12px;
+        background: rgba(var(--background-secondary-rgb));
+        padding: 12px;
+        border-radius: 8px;
+
+        @media (max-width: 768px) {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        input[type='date'],
+        & ::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+            font-size: 13px !important;
+
+            &::-webkit-datetime-edit-year-field {
+                background: rgba(var(--background-rgb));
+                color: rgba(var(--background-rgb));
+            }
+        }
+
+        & ::-webkit-calendar-picker-indicator {
+            color-scheme: var(--color-scheme);
+        }
+
+        * {
+            input[type='date'] {
+                width: 100%;
+                min-width: 150px;
+                padding: 12px 12px;
+                border: 1px solid rgba(var(--background-rgb));
+                background: rgba(var(--background-rgb));
+                color: rgba(var(--font-rgb));
+                font-size: medium;
+                font-family: 'Montserrat';
+                border-radius: 8px;
+                outline: none;
+
+                &:focus {
+                    outline: none;
+                    border: 1px solid rgba(var(--font-rgb));
+                    border-color: rgba(var(--brand-rgb));
+                }
+
+                &:active {
+                    outline: none;
+                    border-color: rgba(var(--brand-rgb));
+                }
+            }
+        }
+    }
+}

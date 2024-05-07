@@ -1,0 +1,82 @@
+@import '../../../colors';
+@import '../../../fonts';
+
+.text {
+  &_h1 {
+    font-size: map-get($font-size, XL);
+    line-height: map-get($line-height, XL);
+  }
+
+  &_h2 {
+    font-size: map-get($font-size, L);
+    line-height: map-get($line-height, L);
+  }
+
+  &_h3 {
+    font-size: map-get($font-size, M);
+    line-height: map-get($line-height, M);
+  }
+
+  &_h4 {
+    font-size: map-get($font-size, S);
+    line-height: map-get($line-height, S);
+  }
+
+  &_h5 {
+    font-size: map-get($font-size, XS);
+    line-height: map-get($line-height, XS);
+  }
+
+  &_bold {
+    font-weight: map-get($font-weight, B);
+  }
+
+  &_medium {
+    font-weight: map-get($font-weight, M);
+  }
+
+  &_regular {
+    font-weight: map-get($font-weight, R);
+  }
+
+  &_xs {
+    font-size: map-get($font-size, XS);
+    line-height: map-get($line-height, XS);
+  }
+
+  &_s {
+    font-size: map-get($font-size, S);
+    line-height: map-get($line-height, S);
+  }
+
+  &_m {
+    font-size: map-get($font-size, M);
+    line-height: map-get($line-height, M);
+  }
+
+  &_l {
+    font-size: map-get($font-size, L);
+    line-height: map-get($line-height, L);
+  }
+
+  &_xl {
+    font-size: map-get($font-size, XL);
+    line-height: map-get($line-height, XL);
+  }
+
+  &_primary {
+    color: rgba(var(--font-rgb));
+  }
+  &_secondary {
+    color: $text_secondary;
+  }
+  &_alert {
+    color: $text_alert;
+  }
+  &_success {
+    color: $text_success;
+  }
+  &_action {
+    color: $text_action;
+  }
+}

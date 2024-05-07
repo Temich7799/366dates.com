@@ -1,0 +1,19 @@
+.btn {
+  width: auto;
+  padding: 12px 24px;
+  border: 1px solid rgba(var(--brand-secondary-rgb));
+  border-radius: 8px;
+  background: rgba(var(--brand-secondary-rgb));
+  color: rgba(var(--background-rgb));
+  font-size: medium;
+  font-weight: 600;
+  font-family: 'Montserrat';
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-wrap: nowrap;
+
+  &:hover {
+    background: rgba(var(--brand-rgb));
+    border: 1px solid rgba(var(--brand-rgb));
+  }
+}
