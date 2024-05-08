@@ -30,6 +30,7 @@ export type NewUserFormProps = {
 		thirdLangPlaceholder: string;
 		newUserSuccessMessage: string;
 		newUserErrorMessage: string;
+		notesPlaceholder: string;
 	}
 	buttonTitle: string;
 	type?: 'user' | 'friend';
@@ -93,7 +94,7 @@ const NewUserFormFull: React.FC<NewUserFormProps> = ({ months, placeholders, but
 		}
 	}, [addFriendship, friendId, isRegisterSuccess, type, userId, data]);
 
-	const { namePlaceholder, cityPlaceholder, passwordPlaceholder, langPlaceholder, secondLangPlaceholder, thirdLangPlaceholder, newUserSuccessMessage, newUserErrorMessage } = placeholders;
+	const { namePlaceholder, cityPlaceholder, passwordPlaceholder, langPlaceholder, secondLangPlaceholder, thirdLangPlaceholder, newUserSuccessMessage, newUserErrorMessage, notesPlaceholder } = placeholders;
 
 	const pathname = usePathname();
 
@@ -122,7 +123,7 @@ const NewUserFormFull: React.FC<NewUserFormProps> = ({ months, placeholders, but
 				<LanguageSelect id="language" defaultValue={langPlaceholder} selectedLanguage={formData.language} onChange={onChangeHandler} />
 				<LanguageSelect id="foreign" defaultValue={secondLangPlaceholder} selectedLanguage={formData.foreign} onChange={onChangeHandler} />
 				<LanguageSelect id="another_foreign" defaultValue={thirdLangPlaceholder} selectedLanguage={formData.another_foreign} onChange={onChangeHandler} />
-				{type === 'friend' && <Input type='textfield' id='note' placeholder="Notes" onChange={onChangeHandler} />}
+				{type === 'friend' && <Input type='textfield' id='note' placeholder={notesPlaceholder} onChange={onChangeHandler} />}
 				<Button type='submit' disabled={isLoading} className={styles.submitBtn}>{isLoading ? 'Sending..' : buttonTitle}</Button>
 				{isError && <Text tag='p' style={{ color: 'red' }}>Error. Try again</Text>}
 			</form>

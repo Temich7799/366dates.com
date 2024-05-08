@@ -18,6 +18,7 @@ const NewUserFormWrapper: React.FC<{ title?: string, language: string, type?: 'u
         thirdLangPlaceholder: t('another_foreign'),
         newUserSuccessMessage: t('new_user_success'),
         newUserErrorMessage: t('new_user_error'),
+        notesPlaceholder: t('notes'),
     }
 
     return (
