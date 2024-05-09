@@ -17,7 +17,7 @@ const LanguageSelect: React.FC<LanguageSelectProps> = ({ selectedLanguage = 'non
         <select id={id} className={styles.select} value={selectedLanguage === 'none' ? selectedLanguage : getMatchedLang()} onChange={onChange} >
             <option value="none" disabled>{defaultValue}</option>
             {languages.map((language) => (
-                <option key={language.code} value={language.name}>
+                <option key={language.name} value={language.name}>
                     {language.nativeName}
                 </option>
             ))}

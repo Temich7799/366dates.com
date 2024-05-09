@@ -1,5 +1,6 @@
 {
     "sign-up": "Inscribirse",
+    "sign-out": "Cerrar sesión",
     "login": "Iniciar sesión",
     "name": "Nombre de pila",
     "city": "Ciudad de residencia",
@@ -29,5 +30,13 @@
     "name_holder": "Nombre",
     "month_holder": "Mes",
     "day_holder": "Día",
-    "password_holder": "Contraseña"
+    "password_holder": "Contraseña",
+    "new_user_success": "¡Usuario agregado exitosamente!",
+    "new_user_error": "Este correo electrónico ya existe",
+    "home": "Inicio",
+    "notes": "Notas",
+    "submit": "Enviar",
+    "blog_title": "Blog",
+    "add_friend": "Agregar un amigo",
+    "my_friends": "Mis amigos"
 }

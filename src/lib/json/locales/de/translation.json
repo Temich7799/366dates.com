@@ -3,7 +3,7 @@
     "sign-out":"Abmelden",
     "login":"Einloggen",
     "name": "Dein Vorname",
-    "city": "Wohnort",
+    "city": "Dein Wohnort",
     "language": "Deine Sprache",
     "foreign": "2. Sprache",
     "another_foreign": "3. Sprache",
@@ -34,7 +34,10 @@
     "password_holder": "Passwort",
     "new_user_success": "Benutzer erfolgreich hinzugefügt!",
     "new_user_error": "Diese Email schon existiert",
-    "home":"Zur Hauptsache",
+    "home":"Start",
     "notes":"Anmerkungen",
-    "submit":"Schicken"
+    "submit":"Registrieren",
+    "blog_title": "Mein Bereich",
+    "add_friend": "Füge deinen Freund hinzu",
+    "my_friends": "Meine Freunde"
 }

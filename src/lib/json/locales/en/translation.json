@@ -1,7 +1,7 @@
 {
     "sign-up": "Sign up",
-    "sign-out":"Sign out",
-    "login":"Login",
+    "sign-out": "Sign out",
+    "login": "Login",
     "name": "First name",
     "city": "City of residence",
     "language": "Native language",
@@ -34,7 +34,10 @@
     "password_holder": "Password",
     "new_user_success": "User added successfully!",
     "new_user_error": "This email already exists",
-    "home":"Home",
-    "notes":"Notes",
-    "submit":"Submit"
+    "home": "Start",
+    "notes": "Notes",
+    "submit": "Submit",
+    "blog_title": "Blog",
+    "add_friend": "Add a friend",
+    "my_friends": "My friends"
 }

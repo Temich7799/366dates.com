@@ -31,8 +31,8 @@ const BirthdayInput: React.FC<BirthdayInputProps> = ({ onChangeHandler, months, 
 
     return (
         <div className={styles.birthdayInput}>
-            <MonthSelect months={months} onChange={handleMonthChange} defaultValue={initialMonthIndex} />
-            <DaySelect onChange={handleDayChange} days={selectedMonth.countDates} defaultValue={initialDay} />
+            <MonthSelect label="Dein Geburtsmonat" months={months} onChange={handleMonthChange} defaultValue={initialMonthIndex} />
+            <DaySelect label="Dein Geburtstag" onChange={handleDayChange} days={selectedMonth.countDates} defaultValue={initialDay} />
         </div>
     )
 }

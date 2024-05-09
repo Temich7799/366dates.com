@@ -1,6 +1,7 @@
 {
     "sign-up": "S'inscrire",
-    "login":"Connexion",
+    "sign-out": "Déconnexion",
+    "login": "Connexion",
     "name": "Prénom",
     "city": "Ville de résidence",
     "language": "Langue maternelle",
@@ -29,5 +30,13 @@
     "name_holder": "Prénom",
     "month_holder": "Mois",
     "day_holder": "Jour",
-    "password_holder": "Mot de passe"
+    "password_holder": "Mot de passe",
+    "new_user_success": "Utilisateur ajouté avec succès !",
+    "new_user_error": "Cet email existe déjà",
+    "home": "Accueil",
+    "notes": "Notes",
+    "submit": "Envoyer",
+    "blog_title": "Blog",
+    "add_friend": "Ajouter un ami",
+    "my_friends": "Mes amis"
 }

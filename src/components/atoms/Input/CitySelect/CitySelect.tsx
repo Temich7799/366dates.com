@@ -59,7 +59,7 @@ const CitySelect: React.FC<CitySelectProps> = ({ cities: citiesProps = [], onCha
                     name={id}
                     placeholder={placeholder}
                     value={searchTerm}
-                    onChange={(e: any) => setSearchTerm(e.target.value)}
+                    onChange={(e: any) => handleSelect(e.target.value)}
                     defaultValue={defaultValue}
                 />
             </div>

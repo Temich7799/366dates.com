@@ -6,7 +6,6 @@ import { SearchUsersForm } from '@/components/organisms/SearchUsersForm/SearchUs
 import useMonths from '@/hooks/useMonths';
 import UsersTable from '@/components/organisms/UsersTable/UsersTable';
 import StyledSearchPage from '@/components/molecules/StyledSearchPage/StyledSearchPage';
-import NewUserFormInitial from '@/components/organisms/NewUserFormInitial/NewUserFormInitial';
 import { useTranslation } from '../../../i18n';
 import { cookies } from 'next/headers';
 import Header from '@/components/molecules/Header/Header';
@@ -50,7 +49,6 @@ export default async function SearchUsersPage({ searchParams, params }: PageNext
       <SearchUsersForm months={months} title={t('choose')} buttonTitle={t('search_btn')} cityLabel={t('cities')} currentMonth={currentMonthIndex as number} currentCity={city as string} currentDay={currentDay as number} />
       <UsersTable data={usersData as User[]} t={t} exclude={['month', 'day', 'note']} />
       <BirthdayText month={currentMonthIndex as string} day={`${currentDay}`} language={language} />
-      {!isLogged && usersData?.length && <NewUserFormInitial title={t('user_new')} namePlaceholder={t('name_holder')} actionPath="/auth/sign-up" months={months} initialMonthIndex={currentMonthIndex as number} initialDay={currentDay as number} />}
     </StyledSearchPage>
   );
 }

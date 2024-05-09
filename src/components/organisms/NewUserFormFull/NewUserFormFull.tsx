@@ -100,7 +100,7 @@ const NewUserFormFull: React.FC<NewUserFormProps> = ({ months, placeholders, but
 
 	useEffect(() => {
 		if (isLoading) {
-			toast.info('Adding user...', { autoClose: false });
+			toast.info('Benutzer wird hinzugefügt...', { autoClose: false });
 		} else if (isSuccess) {
 			toast.success(newUserSuccessMessage);
 			if (pathname.includes('user')) {

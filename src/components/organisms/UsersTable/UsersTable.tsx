@@ -14,7 +14,6 @@ type UsersTableProps = {
 const UsersTable = ({ data, t, exclude, additionalColumns = [] }: UsersTableProps) => {
 
     const columns = [
-        { Header: 'ID', accessor: 'id' },
         { Header: t('month'), accessor: 'month' },
         { Header: t('day'), accessor: 'day' },
         { Header: t('name'), accessor: 'name' },
@@ -23,7 +22,8 @@ const UsersTable = ({ data, t, exclude, additionalColumns = [] }: UsersTableProp
         { Header: t('foreign'), accessor: 'foreign' },
         { Header: t('another_foreign'), accessor: 'another_foreign' },
         { Header: t('note'), accessor: 'note' },
-        ...additionalColumns
+        ...additionalColumns,
+        { Header: 'ID', accessor: 'id' },
     ];
 
     const getFilteredColumns = () => columns.filter((column) => !exclude?.includes(column.accessor))

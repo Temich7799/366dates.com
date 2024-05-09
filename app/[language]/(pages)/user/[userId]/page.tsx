@@ -52,12 +52,12 @@ const UserPage: React.FC<PageNextProps> = async ({ params, searchParams }) => {
             <Header language={language} isLogged={true}>
                 <Link href="/"><Button>{t('home')}</Button></Link>
             </Header>
-            <Text tag='h1'>Blog</Text>
+            <Text tag='h1'>{t('blog_title')}</Text>
             <section>
-                <NewUserFormInitial title='Add a friend' namePlaceholder={t('name_holder')} showDaysUntil={true} months={months} initialDay={currentDay as number} initialMonthIndex={currentMonthIndex as number} />
+                <NewUserFormInitial title={t('add_friend')} namePlaceholder={t('name_holder')} showDaysUntil={true} months={months} initialDay={currentDay as number} initialMonthIndex={currentMonthIndex as number} />
             </section>
             <section>
-                <Text tag='h2'>My friends</Text>
+                <Text tag='h2'>{t('my_friends')}</Text>
                 <UsersTable data={friendsData as User[]} t={t} exclude={['language', 'foreign', 'another_foreign']} />
             </section>
             <section>
