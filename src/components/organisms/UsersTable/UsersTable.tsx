@@ -21,7 +21,7 @@ const UsersTable = ({ data, exclude, additionalColumns = [], t }: UsersTableProp
         { Header: t('language'), accessor: 'language' },
         { Header: t('foreign'), accessor: 'foreign' },
         { Header: t('another_foreign'), accessor: 'another_foreign' },
-        { Header: t('note'), accessor: 'note' },
+        { Header: t('notes'), accessor: 'note' },
         ...additionalColumns,
         { Header: 'ID', accessor: 'id' },
     ];
