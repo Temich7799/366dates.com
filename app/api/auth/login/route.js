@@ -1,4 +1,3 @@
-import generateToken from '@/utils/generateToken';
 import {
     getConnection
 } from '../../../../src/lib/db';
@@ -7,11 +6,9 @@ import {
     serialize
 } from 'cookie';
 import {
-    headers
-} from 'next/headers';
-import {
     NextResponse
 } from 'next/server';
+import encryptObject from '@/utils/encryptObject';
 
 export async function POST(req, res) {
 
@@ -38,7 +35,7 @@ export async function POST(req, res) {
                 status: 400
             });
         }
-        
+
         const user = results[0];
         const passwordMatch = await bcrypt.compare(password, user.password);
 
@@ -48,7 +45,11 @@ export async function POST(req, res) {
             });
         }
 
-        const token = generateToken();
+        const token = encryptObject({
+            email,
+            password
+        }, process.env.NEXT_SECRET_KEY);
+
         const cookieOptions = {
             httpOnly: true,
             maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days

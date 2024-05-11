@@ -41,8 +41,6 @@ export async function POST(req, res) {
 
         const [results, fields] = await connection.query(query, [userId]);
 
-        console.log(userId)
-
         return Response.json(results);
     } catch (error) {
         console.error('Error fetching friends: ' + error.stack);

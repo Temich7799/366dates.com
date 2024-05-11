@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/lib/db.js", "app/api/auth/login/route.js", "src/lib/json/languages.js", "src/lib/redux/store.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/lib/db.js", "app/api/auth/login/route.js", "src/lib/json/languages.js", "src/lib/redux/store.js", "src/utils/encryptObject.ts"],
   "exclude": ["node_modules"]
 }

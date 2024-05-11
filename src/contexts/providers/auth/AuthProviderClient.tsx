@@ -1,9 +1,10 @@
 'use client'
 
 import { createContext, useContext } from "react";
+import RedirectFallback from "./RedirectFallback";
 
 type AuthContextType = {
-    isLogged: boolean;
+    isLogged?: boolean;
 };
 
 const AuthContext = createContext<AuthContextType>({
@@ -12,13 +13,13 @@ const AuthContext = createContext<AuthContextType>({
 
 export const useAuth = () => useContext(AuthContext);
 
-const AuthProviderClient = ({ children, isLogged }: { children: React.ReactNode, isLogged: boolean }) => {
+const AuthProvider = ({ children, isLogged }: { children: React.ReactNode, isLogged?: boolean }) => {
 
     return (
         <AuthContext.Provider value={{ isLogged }}>
-            {children}
+            <RedirectFallback fallback={children} />
         </AuthContext.Provider>
     );
 };
 
-export default AuthProviderClient;
+export default AuthProvider;

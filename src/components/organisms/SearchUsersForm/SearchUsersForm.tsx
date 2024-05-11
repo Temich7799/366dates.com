@@ -11,6 +11,8 @@ import createQueryString from '@/utils/createQueryString';
 import StyledForm from '@/components/molecules/StyledForm/StyledForm';
 import BirthdayInput from '@/components/atoms/BirthdayInput/BirthdayInput';
 import CitySelect from '@/components/atoms/Input/CitySelect/CitySelect';
+import { useLanguageContext } from '@/contexts/CurrentLanguageContext';
+import { useTranslation } from '../../../../app/i18n/client';
 
 type SearchUsersFormProps = {
   months: Array<Month>;
@@ -30,6 +32,8 @@ export const SearchUsersForm: React.FC<SearchUsersFormProps> = ({ currentMonth: 
     city: initialCity,
   });
 
+  const { language } = useLanguageContext();
+
   const onChangeHandler = useCallback((value: string | number, key: string) => {
     setFormData({
       ...formData,
@@ -44,6 +48,8 @@ export const SearchUsersForm: React.FC<SearchUsersFormProps> = ({ currentMonth: 
     window.location.href = window.location.pathname + queryString;
   };
 
+  const { t } = useTranslation(language);
+
   return (
     <section>
       <div className={styles.search}>
@@ -51,7 +57,7 @@ export const SearchUsersForm: React.FC<SearchUsersFormProps> = ({ currentMonth: 
       </div>
       <StyledForm>
         <form onSubmit={onSubmitHandler}>
-          <BirthdayInput months={months} initialMonthIndex={initialMonthIndex} initialDay={initialDay} onChangeHandler={onChangeHandler} />
+          <BirthdayInput monthLabel={t('month_holder')} dayLabel={t('day_holder')} months={months} initialMonthIndex={initialMonthIndex} initialDay={initialDay} onChangeHandler={onChangeHandler} />
           <CitySelect placeholder={cityLabel} id="city" defaultValue={initialCity} onChange={(e: any) => { onChangeHandler(e.target.value, 'city') }} />
           <Button type="submit">{buttonTitle}</Button>
         </form>

@@ -1,7 +1,7 @@
 import { createApi } from '@reduxjs/toolkit/query/react';
 import { baseQuery } from './baseQuery';
 
-export const authApi = createApi({
+export const authApi: any = createApi({
   baseQuery,
   endpoints: (builder) => ({
     register: builder.mutation({
@@ -19,9 +19,12 @@ export const authApi = createApi({
       }),
     }),
     me: builder.query({
-      query: () => '/api/auth/me',
+      query: (userId) => ({
+        url: `/api/auth/me?userId=${userId}`,
+        credentials: 'include'
+      }),
     }),
   }),
 });
 
-export const { useRegisterMutation, useLoginMutation, useMeQuery } = authApi;
+export const { useRegisterMutation, useLoginMutation, useLazyMeQuery } = authApi;

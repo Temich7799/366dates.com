@@ -18,7 +18,7 @@ export const LanguageSelector = () => {
     setSelectedLanguage(target.value);
     i18n.changeLanguage(target.value);
   }
-  console.log(languages)
+
   return (
     <select value={selectedLanguage} onChange={handleChange} className={styles.langselector} >
       {languages.map((language: string, index: number) => <option key={index} value={language}>{language.toUpperCase()}</option>)}

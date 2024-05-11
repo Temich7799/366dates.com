@@ -1,17 +1,17 @@
-import Table from "../../atoms/Table/Table"
 import { TFunction } from "i18next";
+import Table from "../../atoms/Table/Table"
 
 type UsersTableProps = {
     data: any[];
-    t: TFunction<any, any>;
     exclude?: Array<string>;
     additionalColumns?: {
         Header: string;
         accessor: string;
-    }[]
+    }[];
+    t: TFunction<string, undefined>
 }
 
-const UsersTable = ({ data, t, exclude, additionalColumns = [] }: UsersTableProps) => {
+const UsersTable = ({ data, exclude, additionalColumns = [], t }: UsersTableProps) => {
 
     const columns = [
         { Header: t('month'), accessor: 'month' },

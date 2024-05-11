@@ -1,0 +1,17 @@
+.newUserFormInitial {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.newUserFormInitial__formGroup {
+
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    >* {
+        width: 49%;
+    }
+}

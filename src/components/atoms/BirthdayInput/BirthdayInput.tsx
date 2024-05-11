@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DaySelect from "../Input/DaySelect";
 import MonthSelect from "../Input/MonthSelect";
 import { Month } from "@/ts/MonthType";
@@ -8,10 +8,12 @@ type BirthdayInputProps = {
     onChangeHandler: (value: string | number, key: string) => void;
     months: Array<Month>;
     initialMonthIndex: number;
+    monthLabel: string;
+    dayLabel: string;
     initialDay: number;
 };
 
-const BirthdayInput: React.FC<BirthdayInputProps> = ({ onChangeHandler, months, initialMonthIndex, initialDay }) => {
+const BirthdayInput: React.FC<BirthdayInputProps> = ({ onChangeHandler, months, initialMonthIndex, initialDay, monthLabel, dayLabel }) => {
 
     const [selectedMonth, setSelectedMonth] = useState<Month>(months[initialMonthIndex - 1]);
 
@@ -31,8 +33,8 @@ const BirthdayInput: React.FC<BirthdayInputProps> = ({ onChangeHandler, months, 
 
     return (
         <div className={styles.birthdayInput}>
-            <MonthSelect label="Dein Geburtsmonat" months={months} onChange={handleMonthChange} defaultValue={initialMonthIndex} />
-            <DaySelect label="Dein Geburtstag" onChange={handleDayChange} days={selectedMonth.countDates} defaultValue={initialDay} />
+            <MonthSelect label={monthLabel} months={months} onChange={handleMonthChange} defaultValue={initialMonthIndex} />
+            <DaySelect label={dayLabel} onChange={handleDayChange} days={selectedMonth.countDates} defaultValue={initialDay} />
         </div>
     )
 }

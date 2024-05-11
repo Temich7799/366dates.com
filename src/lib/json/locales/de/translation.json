@@ -1,7 +1,7 @@
 {
     "sign-up": "Registrieren",
-    "sign-out":"Abmelden",
-    "login":"Einloggen",
+    "sign-out": "Abmelden",
+    "login": "Einloggen",
     "name": "Dein Vorname",
     "city": "Dein Wohnort",
     "language": "Deine Sprache",
@@ -34,10 +34,11 @@
     "password_holder": "Passwort",
     "new_user_success": "Benutzer erfolgreich hinzugefügt!",
     "new_user_error": "Diese Email schon existiert",
-    "home":"Start",
-    "notes":"Anmerkungen",
-    "submit":"Registrieren",
+    "home": "Start",
+    "notes": "Anmerkungen",
+    "submit": "Registrieren",
     "blog_title": "Mein Bereich",
     "add_friend": "Füge deinen Freund hinzu",
-    "my_friends": "Meine Freunde"
+    "my_friends": "Meine Freunde",
+    "upcoming_birthdays": "Kommende Geburtstage"
 }

@@ -18,6 +18,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/navigation';
 import CitySelect from '@/components/atoms/Input/CitySelect/CitySelect';
+import { useTranslation } from '../../../../app/i18n/client';
 
 export type NewUserFormProps = {
 	months: Array<Month>;
@@ -112,11 +113,13 @@ const NewUserFormFull: React.FC<NewUserFormProps> = ({ months, placeholders, but
 		}
 	}, [isLoading, isSuccess, isError, userId]);
 
+	const { t } = useTranslation(language);
+
 	return (
 		<StyledForm>
 			<form onSubmit={onSubmitHandler} style={{ flexDirection: 'column' }}>
 				<Input type="label" required id="name" defaultValue={initialName} placeholder={namePlaceholder} onChange={onChangeHandler} />
-				<BirthdayInput months={months} initialMonthIndex={initialMonth} initialDay={initialDay} onChangeHandler={onBirthdayChangeHandler} />
+				<BirthdayInput monthLabel={t('month_holder')} dayLabel={t('day_holder')} months={months} initialMonthIndex={initialMonth} initialDay={initialDay} onChangeHandler={onBirthdayChangeHandler} />
 				<CitySelect id="city" placeholder={cityPlaceholder} onChange={onChangeHandler as any} />
 				<Input required type="email" id="email" placeholder="Email" onChange={onChangeHandler} />
 				<Input required type="password" id="password" placeholder={passwordPlaceholder} onChange={onChangeHandler} />
