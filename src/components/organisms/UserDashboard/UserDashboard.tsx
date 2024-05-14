@@ -9,10 +9,8 @@ import { useEffect, useState } from 'react';
 import calculateDaysUntilBirthday from '@/utils/calculateDaysUntilBirthday';
 import { useTranslation } from '../../../../app/i18n/client';
 
-
 interface UserDashboardProps {
     addFriendTitle: string;
-    namePlaceholder: string;
     myFriendsTitle: string;
     upcomingFriendsTitle: string;
     upcomingFriendsColumns: { Header: string; accessor: string }[];
@@ -25,14 +23,17 @@ interface UserDashboardProps {
     placeholders: {
         newUserSuccessMessage: string
         newUserErrorMessage: string;
+        namePlaceholder: string;
+        cityPlaceholder: string;
+        notePlaceholder: string;
+        monthPlaceholder: string;
+        dayPlaceholder: string;
     }
     userId: string;
 }
 
 const UserDashboard: React.FC<UserDashboardProps> = ({
     addFriendTitle,
-    namePlaceholder,
-    myFriendsTitle,
     upcomingFriendsTitle,
     upcomingFriendsColumns,
     addFriendButtonText,
@@ -44,9 +45,8 @@ const UserDashboard: React.FC<UserDashboardProps> = ({
     userId,
     placeholders
 }) => {
-
     const [friendsData, setFriendsData] = useState<User[]>(friendsDataInitial);
-    const [upcomingFriendsData, setUpcomingFriendData] = useState<Array<any>>([]);
+    const [upcomingFriendsData, setUpcomingFriendData] = useState<User[]>([]);
 
     const onSubmitHandler = (formData: { month: string; day: string; name: string, note?: string }) => {
         setFriendsData([
@@ -63,21 +63,11 @@ const UserDashboard: React.FC<UserDashboardProps> = ({
     }
 
     useEffect(() => {
-
-        friendsData && setUpcomingFriendData(
-
-            friendsData.map((friend) => {
-
-                const days_until = calculateDaysUntilBirthday(`${friend.day}/${friend.month}`);
-
-                if (days_until > 0) {
-                    return {
-                        ...friend,
-                        days_until
-                    }
-                }
-            })
-        )
+        const upcomingFriends = friendsData.filter(friend => {
+            const daysUntil = calculateDaysUntilBirthday(`${friend.day}/${friend.month}`);
+            return daysUntil > 0;
+        });
+        setUpcomingFriendData(upcomingFriends);
     }, [friendsData]);
 
     const { t } = useTranslation(language);
@@ -89,9 +79,6 @@ const UserDashboard: React.FC<UserDashboardProps> = ({
                     userId={userId}
                     placeholders={placeholders}
                     title={addFriendTitle}
-                    namePlaceholder={namePlaceholder}
-                    cityPlaceholder={t('city')}
-                    notePlaceholder={t('notes')}
                     showDaysUntil={true}
                     months={months}
                     initialDay={currentDay as number}
@@ -101,7 +88,6 @@ const UserDashboard: React.FC<UserDashboardProps> = ({
                 />
             </section>
             <section>
-                {/* <Text tag='h2'>{myFriendsTitle}</Text> */}
                 <UsersTable
                     data={friendsData}
                     t={t}

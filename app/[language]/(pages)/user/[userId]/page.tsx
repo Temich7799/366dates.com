@@ -15,24 +15,40 @@ export const metadata = {
     description: 'Tauchen Sie ein in die faszinierende Welt unserer Geschichten, inspirierenden Artikel und unterhaltsamen Fakten über Feiern und Treffen!'
 }
 
+const fetchFriendsData = async (userId: string) => {
+    try {
+        const response = await fetch(process.env.NEXT_API_BASE_URL + 'getAllUserFriends', {
+            method: 'POST',
+            body: JSON.stringify({ userId })
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error(error);
+        return [];
+    }
+};
+
 const UserPage: React.FC<PageNextProps> = async ({ params, searchParams }) => {
 
     const { userId, language } = params;
-
+    const { t } = await useTranslation(language);
     const months = await useMonths(language);
 
     const date = new Date();
-
     const { day: currentDay = date.getDate(), month: currentMonthIndex = date.getMonth() + 1, city } = searchParams;
 
-    const friendsData: User[] = await fetch(process.env.NEXT_API_BASE_URL + 'getAllUserFriends', { method: 'POST', body: JSON.stringify({ userId }) })
-        .then((res) => res.json())
-        .then((res) => res)
-        .catch((error) => {
-            console.error(error)
-        });
+    const friendsData: User[] = await fetchFriendsData(userId);
 
-    const { t } = await useTranslation(language);
+    const placeholders = {
+        newUserSuccessMessage: t('new_user_success'),
+        newUserErrorMessage: t('new_user_error'),
+        cityPlaceholder: t('city'),
+        monthPlaceholder: t('month_holder'),
+        dayPlaceholder: t('day_holder'),
+        notePlaceholder: t('notes'),
+        namePlaceholder: t('name_holder'),
+    }
 
     return (
         <StyledSearchPage>
@@ -42,15 +58,19 @@ const UserPage: React.FC<PageNextProps> = async ({ params, searchParams }) => {
             <Text tag='h1'>{t('blog_title')}</Text>
             <UserDashboard
                 userId={userId}
-                placeholders={{ newUserSuccessMessage: t('new_user_success'), newUserErrorMessage: t('new_user_error') }}
+                placeholders={placeholders}
                 addFriendTitle={t('add_friend')}
-                namePlaceholder={t('name_holder')}
                 myFriendsTitle={t('my_friends')}
                 upcomingFriendsTitle={t('upcoming_birthdays')}
                 upcomingFriendsColumns={[{ Header: t('days_until'), accessor: 'days_until' }]}
                 friendsData={friendsData}
-                language={language} months={months} currentDay={currentDay as string} currentMonthIndex={currentMonthIndex as string} addFriendButtonText={t('add_friend')} />
-        </StyledSearchPage >
+                language={language}
+                months={months}
+                currentDay={currentDay as string}
+                currentMonthIndex={currentMonthIndex as string}
+                addFriendButtonText={t('add_friend')}
+            />
+        </StyledSearchPage>
     );
 };
 
