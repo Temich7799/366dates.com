@@ -105,7 +105,7 @@ const UserDashboard: React.FC<UserDashboardProps> = ({
                 <UsersTable
                     data={friendsData}
                     t={t}
-                    exclude={['language', 'foreign', 'another_foreign, id']}
+                    exclude={['language', 'foreign', 'another_foreign', 'id']}
                 />
             </section>
             <section>
@@ -113,7 +113,7 @@ const UserDashboard: React.FC<UserDashboardProps> = ({
                 <UsersTable
                     data={upcomingFriendsData}
                     t={t}
-                    exclude={['language', 'foreign', 'another_foreign, id']}
+                    exclude={['language', 'foreign', 'another_foreign', 'id']}
                     additionalColumns={upcomingFriendsColumns}
                 />
             </section>

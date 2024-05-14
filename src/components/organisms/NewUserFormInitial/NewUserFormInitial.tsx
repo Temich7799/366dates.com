@@ -63,7 +63,15 @@ const NewUserFormInitial: React.FC<NewUserFormInitialProps> = React.memo(({ mont
     const handleSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         onSubmitHandler && onSubmitHandler(formData);
-        await register({ ...formData, email: generateRandomEmail(), password: 'nopass' });
+        register({ ...formData, email: generateRandomEmail(), password: 'nopass' })
+            .then(() => {
+                setFormData({
+                    month: `${initialMonthIndex}`,
+                    day: `${initialDay}`,
+                    name: '',
+                    note: '',
+                })
+            })
     }, [formData]);
 
     const handleChange = useCallback((value: string | number, key: string) => {
