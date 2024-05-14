@@ -20,8 +20,6 @@ export async function GET(req, res) {
         authToken
     } = parse(cookie);
 
-    console.log("🚀 ~ GET ~ token:", authToken);
-
     if (!authToken) {
         return Response.json('User not authenticated', {
             status: 401
@@ -32,8 +30,6 @@ export async function GET(req, res) {
         email,
         password
     } = decryptObject(authToken, process.env.NEXT_SECRET_KEY);
-
-    console.log(email, password);
 
     const connection = await getConnection();
 

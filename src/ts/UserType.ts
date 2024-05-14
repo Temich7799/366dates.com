@@ -8,4 +8,5 @@ export type User = {
     foreign?: string;
     another_foreign?: string;
     note?: string;
+    days_until?: number;
 };

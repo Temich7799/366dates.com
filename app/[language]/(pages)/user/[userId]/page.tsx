@@ -62,7 +62,6 @@ const UserPage: React.FC<PageNextProps> = async ({ params, searchParams }) => {
                 addFriendTitle={t('add_friend')}
                 myFriendsTitle={t('my_friends')}
                 upcomingFriendsTitle={t('upcoming_birthdays')}
-                upcomingFriendsColumns={[{ Header: t('days_until'), accessor: 'days_until' }]}
                 friendsData={friendsData}
                 language={language}
                 months={months}

@@ -13,7 +13,6 @@ interface UserDashboardProps {
     addFriendTitle: string;
     myFriendsTitle: string;
     upcomingFriendsTitle: string;
-    upcomingFriendsColumns: { Header: string; accessor: string }[];
     addFriendButtonText: string;
     friendsData: User[];
     months: Array<Month>;
@@ -35,7 +34,6 @@ interface UserDashboardProps {
 const UserDashboard: React.FC<UserDashboardProps> = ({
     addFriendTitle,
     upcomingFriendsTitle,
-    upcomingFriendsColumns,
     addFriendButtonText,
     friendsData: friendsDataInitial,
     months,
@@ -48,24 +46,26 @@ const UserDashboard: React.FC<UserDashboardProps> = ({
     const [friendsData, setFriendsData] = useState<User[]>(friendsDataInitial);
     const [upcomingFriendsData, setUpcomingFriendData] = useState<User[]>([]);
 
-    const onSubmitHandler = (formData: { month: string; day: string; name: string, note?: string }) => {
-        setFriendsData([
-            ...friendsData,
+    const handleFormSubmit = (newFriendData: { month: string; day: string; name: string; note?: string }) => {
+        const updatedFriends = [
             {
-                email: '',
-                language: '',
-                city: '',
-                foreign: '',
-                another_foreign: '',
-                ...formData,
-            }
-        ]);
+                ...newFriendData,
+            },
+            ...friendsData,
+        ];
+        setFriendsData(updatedFriends as User[]);
     }
 
     useEffect(() => {
-        const upcomingFriends = friendsData.filter(friend => {
+        const upcomingFriends: User[] = [];
+        friendsData.forEach(friend => {
             const daysUntil = calculateDaysUntilBirthday(`${friend.day}/${friend.month}`);
-            return daysUntil > 0;
+            if (daysUntil > 0) {
+                upcomingFriends.push({
+                    ...friend,
+                    days_until: daysUntil,
+                })
+            }
         });
         setUpcomingFriendData(upcomingFriends);
     }, [friendsData]);
@@ -84,7 +84,7 @@ const UserDashboard: React.FC<UserDashboardProps> = ({
                     initialDay={currentDay as number}
                     initialMonthIndex={currentMonthIndex as number}
                     buttonText={addFriendButtonText}
-                    onSubmit={onSubmitHandler}
+                    onSubmit={handleFormSubmit}
                 />
             </section>
             <section>
@@ -100,7 +100,7 @@ const UserDashboard: React.FC<UserDashboardProps> = ({
                     data={upcomingFriendsData}
                     t={t}
                     exclude={['language', 'foreign', 'another_foreign', 'id']}
-                    additionalColumns={upcomingFriendsColumns}
+                    additionalColumns={[{ Header: t('days_until'), accessor: 'days_until' }]}
                 />
             </section>
         </>
