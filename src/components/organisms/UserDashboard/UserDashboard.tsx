@@ -101,11 +101,11 @@ const UserDashboard: React.FC<UserDashboardProps> = ({
                 />
             </section>
             <section>
-                <Text tag='h2'>{myFriendsTitle}</Text>
+                {/* <Text tag='h2'>{myFriendsTitle}</Text> */}
                 <UsersTable
                     data={friendsData}
                     t={t}
-                    exclude={['language', 'foreign', 'another_foreign']}
+                    exclude={['language', 'foreign', 'another_foreign, id']}
                 />
             </section>
             <section>
@@ -113,7 +113,7 @@ const UserDashboard: React.FC<UserDashboardProps> = ({
                 <UsersTable
                     data={upcomingFriendsData}
                     t={t}
-                    exclude={['language', 'foreign', 'another_foreign']}
+                    exclude={['language', 'foreign', 'another_foreign, id']}
                     additionalColumns={upcomingFriendsColumns}
                 />
             </section>
