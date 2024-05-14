@@ -33,7 +33,7 @@ const CitySelect: React.FC<CitySelectProps> = ({ cities: citiesProps = [], onCha
     });
 
     const handleSelect = (city: string) => {
-        onChangeHandler({ target: { value: city } } as ChangeEvent<HTMLInputElement>);
+        onChangeHandler({ target: { value: city, id } } as ChangeEvent<HTMLInputElement>);
         setSearchTerm(city);
     };
 

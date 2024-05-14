@@ -19,6 +19,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useRouter } from 'next/navigation';
 import CitySelect from '@/components/atoms/Input/CitySelect/CitySelect';
 import { useTranslation } from '../../../../app/i18n/client';
+import getLanguageName from '@/utils/getLanguageName';
 
 export type NewUserFormProps = {
 	months: Array<Month>;
@@ -55,7 +56,7 @@ const NewUserFormFull: React.FC<NewUserFormProps> = ({ months, placeholders, but
 		month: initialMonth,
 		day: initialDay,
 		name: initialName,
-		language,
+		language: getLanguageName(language),
 	}));
 
 	const [userId, setUserId] = useState(userIdProps);
@@ -73,9 +74,9 @@ const NewUserFormFull: React.FC<NewUserFormProps> = ({ months, placeholders, but
 		await register(formData);
 	}, [data, formData, type]);
 
-	const onChangeHandler = useCallback(({ target }: any) => {
-		target.id ? setFormData((prevData: any) => ({ ...prevData, [target.id]: target.value })) : console.error('key arg is not specified');
-	}, []);
+	const onChangeHandler = ({ target }: any) => {
+		target.id ? setFormData({ ...formData, [target.id]: target.value }) : console.error('key arg is not specified');
+	}
 
 	const onBirthdayChangeHandler = useCallback((value: string | number, key: string) => {
 		setFormData((prevData: any) => ({ ...prevData, [key]: value }));
