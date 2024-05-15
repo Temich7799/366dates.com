@@ -14,9 +14,9 @@ type UsersTableProps = {
 const UsersTable = ({ data, exclude, additionalColumns = [], t }: UsersTableProps) => {
 
     const columns = [
-        { Header: t('month'), accessor: 'month' },
-        { Header: t('day'), accessor: 'day' },
         { Header: t('name'), accessor: 'name' },
+        { Header: t('month'), accessor: 'month_name' },
+        { Header: t('day'), accessor: 'day' },
         { Header: t('city'), accessor: 'city' },
         { Header: t('language'), accessor: 'language' },
         { Header: t('foreign'), accessor: 'foreign' },
