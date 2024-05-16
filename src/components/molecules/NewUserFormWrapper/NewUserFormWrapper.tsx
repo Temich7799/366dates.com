@@ -3,6 +3,7 @@ import { Text } from "@/components/atoms/Text/Text";
 import { useTranslation } from "@/../app/i18n";
 import useMonths from "@/hooks/useMonths";
 import NewUserFormFull from "@/components/organisms/NewUserFormFull/NewUserFormFull";
+import { Suspense } from 'react';
 
 const NewUserFormWrapper: React.FC<{ title?: string, language: string, type?: 'user' | 'friend', userId?: string }> = async ({ title, language, type, userId }) => {
 
@@ -24,7 +25,9 @@ const NewUserFormWrapper: React.FC<{ title?: string, language: string, type?: 'u
     return (
         <div className={styles.signup}>
             {title && <Text tag="h1">{title}</Text>}
-            <NewUserFormFull months={months} placeholders={formPlaceholders} buttonTitle={t('submit')} type={type} userId={userId} />
+            <Suspense>
+                <NewUserFormFull months={months} placeholders={formPlaceholders} buttonTitle={t('submit')} type={type} userId={userId} />
+            </Suspense>
         </div>
     )
 }
