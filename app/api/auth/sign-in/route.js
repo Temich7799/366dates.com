@@ -1,10 +1,12 @@
-import {
-    getConnection
-} from '../../../../src/lib/db';
+import { getConnection } from '../../../../src/lib/db';
 import bcrypt from 'bcrypt';
 
-export async function POST(req, res) {
+const monthNamesInGerman = [
+    'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
+    'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
+];
 
+export async function POST(req, res) {
     const data = await req.json();
 
     const {
@@ -43,10 +45,12 @@ export async function POST(req, res) {
             });
         }
 
-        const hashedPassword = await bcrypt.hash(password, 10); // 10 is the salt rounds
+        const hashedPassword = await bcrypt.hash(password, 10);
 
-        const query = 'INSERT INTO users (name, day, month, city, `language`, `foreign`, another_foreign, email, note, `password`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
-        const [result] = await connection.query(query, [name, day, month, city, language, foreign, another_foreign, email, note, hashedPassword]);
+        const monthName = monthNamesInGerman[month - 1];
+
+        const query = 'INSERT INTO users (name, day, month, month_name, city, `language`, `foreign`, another_foreign, email, note, `password`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        const [result] = await connection.query(query, [name, day, month, monthName, city, language, foreign, another_foreign, email, note, hashedPassword]);
 
         return Response.json({
             data: {
