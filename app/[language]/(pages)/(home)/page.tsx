@@ -47,7 +47,7 @@ export default async function SearchUsersPage({ searchParams, params }: PageNext
     <StyledSearchPage>
       <Header language={language} isLogged={isLogged} />
       <SearchUsersForm months={months} title={t('choose')} buttonTitle={t('search_btn')} cityLabel={t('cities')} currentMonth={currentMonthIndex as number} currentCity={city as string} currentDay={currentDay as number} />
-      <UsersTable data={usersData as User[]} t={t} exclude={['month', 'day', 'note']} />
+      <UsersTable data={usersData as User[]} t={t} exclude={['month', 'month_name', 'day', 'note']} />
       <BirthdayText month={currentMonthIndex as string} day={`${currentDay}`} language={language} />
     </StyledSearchPage>
   );
