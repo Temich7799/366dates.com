@@ -14,6 +14,7 @@ import CitySelect from '@/components/atoms/Input/CitySelect/CitySelect';
 import { useRegisterMutation } from '@/lib/redux/api/authApi';
 import { useAddFriendshipMutation } from '@/lib/redux/api/userApi';
 import generateRandomEmail from '@/utils/generateRandomEmail';
+import getMonthName from '@/utils/getMonthName';
 
 type NewUserFormInitialProps = {
     months: Array<Month>;
@@ -38,11 +39,12 @@ type NewUserFormInitialProps = {
 
 const NewUserFormInitial: React.FC<NewUserFormInitialProps> = React.memo(({ months, initialMonthIndex, userId: userIdProps, placeholders, onSubmit: onSubmitHandler, initialDay, buttonText, showDaysUntil = false, title, actionPath = '/add-friend' }) => {
 
-    const [formData, setFormData] = useState<{ month: string; day: string; name: string, note?: string }>(() => ({
+    const [formData, setFormData] = useState<{ month: string; day: string; name: string, note?: string, month_name: string }>(() => ({
         month: `${initialMonthIndex}`,
         day: `${initialDay}`,
         name: '',
         note: '',
+        month_name: '',
         id: ''
     }));
 
@@ -53,9 +55,9 @@ const NewUserFormInitial: React.FC<NewUserFormInitialProps> = React.memo(({ mont
     const [register, { data = {}, isLoading: isRegisterProcessing, isError: isRegisterError, isSuccess: isRegisterSuccess }] = useRegisterMutation();
     const [addFriendship, { isLoading: isFriendshipProcessing, isError: isFriendshipError, isSuccess: isFriendshipSuccess }] = useAddFriendshipMutation();
 
-    const isLoading = isRegisterProcessing || isFriendshipProcessing;
-    const isError = isRegisterError || isFriendshipError;
-    const isSuccess = isRegisterSuccess && isFriendshipSuccess;
+    // const isLoading = isRegisterProcessing || isFriendshipProcessing;
+    // const isError = isRegisterError || isFriendshipError;
+    // const isSuccess = isRegisterSuccess && isFriendshipSuccess;
 
     const handleSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -67,6 +69,7 @@ const NewUserFormInitial: React.FC<NewUserFormInitialProps> = React.memo(({ mont
                     day: `${initialDay}`,
                     name: '',
                     note: '',
+                    month_name: getMonthName(initialMonthIndex),
                 })
             })
     }, [formData]);

@@ -1,10 +1,6 @@
+import getMonthName from '@/utils/getMonthName';
 import { getConnection } from '../../../../src/lib/db';
 import bcrypt from 'bcrypt';
-
-const monthNamesInGerman = [
-    'Januar', 'Februar', 'März', 'April', 'Mai', 'Juni',
-    'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'
-];
 
 export async function POST(req, res) {
     const data = await req.json();
@@ -47,7 +43,7 @@ export async function POST(req, res) {
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        const monthName = monthNamesInGerman[month - 1];
+        const monthName = getMonthName(month);
 
         const query = 'INSERT INTO users (name, day, month, month_name, city, `language`, `foreign`, another_foreign, email, note, `password`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
         const [result] = await connection.query(query, [name, day, month, monthName, city, language, foreign, another_foreign, email, note, hashedPassword]);
