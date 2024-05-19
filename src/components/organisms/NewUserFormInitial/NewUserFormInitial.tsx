@@ -103,7 +103,7 @@ const NewUserFormInitial: React.FC<NewUserFormInitialProps> = React.memo(({ mont
             <form onSubmit={handleSubmit} className={styles.newUserFormInitial}>
                 <div className={styles.newUserFormInitial__formGroup}>
                     <Input type="text" placeholder={namePlaceholder} required value={formData.name} onChange={(e) => onChangeHandler(e, 'name')} />
-                    <CitySelect placeholder={cityPlaceholder} onChange={(e) => onChangeHandler(e, 'city')} />
+                    <CitySelect required placeholder={cityPlaceholder} onChange={(e) => onChangeHandler(e, 'city')} />
                 </div>
                 <BirthdayInput monthLabel={monthPlaceholder} dayLabel={dayPlaceholder} months={months} initialMonthIndex={initialMonthIndex} initialDay={initialDay} onChangeHandler={handleChange} />
                 <Input type="textfield" placeholder={notePlaceholder} value={formData.note} onChange={(e) => onChangeHandler(e, 'note')} />

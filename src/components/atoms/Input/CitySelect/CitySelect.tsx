@@ -12,10 +12,11 @@ interface CitySelectProps {
     onChange: (e: ChangeEvent) => any;
     placeholder?: string;
     id?: string;
+    required?: boolean;
     defaultValue?: string;
 }
 
-const CitySelect: React.FC<CitySelectProps> = ({ cities: citiesProps = [], onChange: onChangeHandler, placeholder, id, defaultValue }) => {
+const CitySelect: React.FC<CitySelectProps> = ({ cities: citiesProps = [], onChange: onChangeHandler, placeholder, id, required, defaultValue }) => {
 
     const [searchTerm, setSearchTerm] = useState(defaultValue || '');
     const [isOpen, setIsOpen] = useState(false);
@@ -56,6 +57,7 @@ const CitySelect: React.FC<CitySelectProps> = ({ cities: citiesProps = [], onCha
                 <Input
                     type="text"
                     id={id}
+                    required={required}
                     name={id}
                     placeholder={placeholder}
                     value={searchTerm}
