@@ -57,14 +57,11 @@ const UserDashboard: React.FC<UserDashboardProps> = ({
     }
 
     useEffect(() => {
-        const upcomingFriends: User[] = [];
-        friendsData.forEach(friend => {
+        const upcomingFriends: User[] = friendsData.map(friend => {
             const daysUntil = calculateDaysUntilBirthday(`${friend.day}/${friend.month}`);
-            if (daysUntil > 0) {
-                upcomingFriends.push({
-                    ...friend,
-                    days_until: daysUntil,
-                })
+            return {
+                ...friend,
+                days_until: daysUntil || 0,
             }
         });
         setUpcomingFriendData(upcomingFriends);

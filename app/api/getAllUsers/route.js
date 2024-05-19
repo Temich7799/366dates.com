@@ -40,8 +40,6 @@ export async function GET(req, res) {
 
         query += ` ORDER BY CASE WHEN city IS NULL THEN 1 ELSE 0 END, city;`;
 
-        console.log(query)
-
         const [results, fields] = await connection.query(query);
 
         return Response.json(results);
