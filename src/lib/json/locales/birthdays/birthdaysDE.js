@@ -144,25 +144,55 @@ export const birthdaysDE = [
   {
     day: 9,
     month: 5,
-    text: [
-      '9. Mai: Geburtstag im Zeichen von Freiheit und Abenteuerlust - an deinem Geburtstag, der im Frühling liegt, brichst du auf zu neuen Horizonten!',
-      'Der 9. Mai ist ein Tag voller Energie und Aufbruchstimmung. Die Sonne strahlt warm vom Himmel, die Vögel singen und die Natur erwacht zum Leben. An diesem Tag, geboren unter dem Zeichen von Freiheit, Abenteuerlust und Tatkraft, kommen Menschen auf die Welt, die das Leben in vollen Zügen genießen und die Welt mit ihrem Enthusiasmus anstecken. ',
-      'Die Zahl "9" in der Numerologie symbolisiert:',
-      '•	Abschluss: Sie steht für das Ende eines Zyklus und den Beginn eines neuen Kapitels.',
-      '•	Transformation: Sie repräsentiert die Fähigkeit, sich weiterzuentwickeln und zu verändern.',
-      '•	Weisheit: Sie symbolisiert das Wissen und die Erfahrung, die man im Laufe des Lebens gesammelt hat.',
-      'Diese Eigenschaften prägen Menschen, die am 9. Mai geboren wurden. Sie sind von Natur aus neugierig und offen für Neues, und sie scheuen sich nicht, Risiken einzugehen, um ihre Ziele zu erreichen.',
-      'Der Mai, der fünfte Monat des Jahres, ist nach der römischen Göttin Maia benannt, die für Wachstum und Fruchtbarkeit steht. Die Energie dieses Monats inspiriert Menschen mit:',
-      '•	Optimismus: Sie sehen die Welt mit einem positiven Blick und glauben an ihre Fähigkeiten.',
-      '•	Kreativität: Sie finden neue und innovative Lösungen für Probleme.',
-      '•	Lebensfreude: Sie genießen die schönen Seiten des Lebens und feiern ihre Erfolge.',
-      'Die berühmte Persönlichkeiten, die am 9. Mai geboren wurden:',
-      '•	Johannes Kepler: deutscher Astronom und Naturforscher',
-      '•	Sigmund Freud: Begründer der Psychoanalyse',
-      '•	Billy Joel: US-amerikanischer Sänger und Songwriter',
-      'In einigen Kulturen ist der 9. Mai ein Tag, an dem man Maibäume aufstellt und feiert. In anderen Kulturen wird der Geburtstag mit einem Festmahl und Geschenken gefeiert.',
-      'Ich wünsche dir, dass dein Geburtstag voller Freude, Abenteuer und Entdeckergeist ist!',
-    ],
+    text: `<h1 style="text-align:center;"><span style="color:#000000;font-family:Segoe UI, sans-serif;font-size:small;">
+    <font style="font-size:10pt;"><strong>9. Mai: Geburtstag im Zeichen von Freiheit und Abenteuerlust -</strong></font>
+</span></h1>
+<h2 style="text-align:center;"><span style="color:#000000;font-family:Segoe UI, sans-serif;font-size:small;">
+    <font style="font-size:10pt;"><span style="font-weight:normal;">an deinem Geburtstag, der im Frühling liegt, brichst du auf zu neuen Horizonten!</span></font>
+</span></h2>
+<p style="line-height:100%;margin-bottom:0cm;" align="left"><br><span style="color:#000000;font-family:Segoe UI, sans-serif;font-size:small;">
+    <font style="font-size:10pt;"><span style="font-weight:normal;">Der<strong> </strong></span><strong>9. Mai</strong><span style="font-weight:normal;"> ist ein Tag voller Energie und Aufbruchstimmung. Die Sonne strahlt warm vom Himmel, die Vögel singen und die Natur erwacht zum Leben. An diesem Tag, geboren unter dem Zeichen von Freiheit, Abenteuerlust und Tatkraft, kommen Menschen auf die Welt, die das Leben in vollen Zügen genießen und die Welt mit ihrem Enthusiasmus anstecken.&nbsp;</span></font>&nbsp;&nbsp;
+</span><br><br><span style="color:#000000;font-family:Segoe UI, sans-serif;font-size:small;">
+    <font style="font-size:10pt;"><span style="font-weight:normal;">Die Zahl "9" in der Numerologie symbolisiert:</span></font>
+</span></p>
+<p style="line-height:100%;margin-bottom:0cm;margin-left:40px;" align="left"><br><span style="color:#000000;font-family:Segoe UI, sans-serif;font-size:small;">
+    <font style="font-size:10pt;">* Abschluss: <span style="font-weight:normal;">Sie steht für das Ende eines Zyklus und den Beginn eines neuen Kapitels.</span></font>&nbsp;&nbsp;
+</span><br><span style="color:#000000;font-family:Segoe UI, sans-serif;font-size:small;">
+    <font style="font-size:10pt;">* Transformation: <span style="font-weight:normal;">Sie repräsentiert die Fähigkeit, sich weiterzuentwickeln und zu verändern.</span></font>&nbsp;&nbsp;
+</span><br><span style="color:#000000;font-family:Segoe UI, sans-serif;font-size:small;">
+    <font style="font-size:10pt;">* Weisheit: <span style="font-weight:normal;">Sie symbolisiert das Wissen und die Erfahrung, die man im Laufe des Lebens gesammelt hat.</span></font>&nbsp;&nbsp;
+</span><br>&nbsp;</p>
+<p style="line-height:100%;margin-bottom:0cm;" align="left"><span style="color:#000000;font-family:Segoe UI, sans-serif;font-size:small;">
+    <font style="font-size:10pt;"><span style="font-weight:normal;">Diese Eigenschaften prägen Menschen, die am </span><strong>9. Mai</strong><span style="font-weight:normal;"><strong> </strong>geboren wurden. Sie sind von Natur aus neugierig und offen für Neues, und sie scheuen sich nicht, Risiken einzugehen, um ihre Ziele zu erreichen.</span></font>&nbsp;&nbsp;
+</span><br><br><span style="color:#000000;font-family:Segoe UI, sans-serif;font-size:small;">
+    <font style="font-size:10pt;"><span style="font-weight:normal;">Der Mai, der fünfte Monat des Jahres, ist nach der römischen Göttin Maia benannt, die für Wachstum und Fruchtbarkeit steht. Die Energie dieses Monats inspiriert Menschen mit:</span></font>&nbsp;&nbsp;
+</span><br>&nbsp;</p>
+<p style="line-height:100%;margin-bottom:0cm;margin-left:40px;" align="left"><span style="color:#000000;font-family:Segoe UI, sans-serif;font-size:small;">
+    <font style="font-size:10pt;">* Optimismus: <span style="font-weight:normal;">Sie sehen die Welt mit einem positiven Blick und glauben an ihre Fähigkeiten.</span></font>&nbsp;&nbsp;
+</span><br><span style="color:#000000;font-family:Segoe UI, sans-serif;font-size:small;">
+    <font style="font-size:10pt;">* Kreativität: <span style="font-weight:normal;">Sie finden neue und innovative Lösungen für Probleme.</span></font>&nbsp;&nbsp;
+</span><br><span style="color:#000000;font-family:Segoe UI, sans-serif;font-size:small;">
+    <font style="font-size:10pt;">* Lebensfreude: <span style="font-weight:normal;">Sie genießen die schönen Seiten des Lebens und feiern ihre Erfolge.</span></font>
+</span></p>
+<p style="line-height:100%;margin-bottom:0cm;" align="left"><br><span style="color:#000000;font-family:Segoe UI, sans-serif;font-size:small;">
+    <font style="font-size:10pt;"><span style="font-weight:normal;">Die berühmte Persönlichkeiten, die am<strong> </strong></span><strong>9. Mai</strong> <span style="font-weight:normal;">geboren wurden:</span></font>
+</span></p>
+<p style="line-height:100%;margin-bottom:0cm;margin-left:40px;" align="left"><br><span style="color:#000000;font-family:Segoe UI, sans-serif;font-size:small;">
+    <font style="font-size:10pt;"><span style="font-weight:normal;">* Johannes Kepler: deutscher Astronom und Naturforscher</span></font>&nbsp;&nbsp;
+</span><br><span style="color:#000000;font-family:Segoe UI, sans-serif;font-size:small;">
+    <font style="font-size:10pt;"><span style="font-weight:normal;">* Sigmund Freud: Begründer der Psychoanalyse</span></font>&nbsp;&nbsp;
+</span><br><span style="color:#000000;font-family:Segoe UI, sans-serif;font-size:small;">
+    <font style="font-size:10pt;"><span style="font-weight:normal;">* Billy Joel: US-amerikanischer Sänger und Songwriter</span></font>
+</span></p>
+<p style="line-height:100%;margin-bottom:0cm;" align="left"><br>&nbsp;</p>
+<p style="line-height:100%;margin-bottom:0cm;" align="left"><span style="color:#000000;font-family:Segoe UI, sans-serif;font-size:small;">
+    <font style="font-size:10pt;"><span style="font-weight:normal;">In einigen Kulturen ist der <strong>9. Mai</strong> ein Tag, an dem man Maibäume aufstellt und feiert. In anderen Kulturen wird der Geburtstag mit einem Festmahl und Geschenken gefeiert.</span></font>
+</span></p>
+<h1><br><span style="color:#000000;font-family:Segoe UI, sans-serif;font-size:small;">
+    <font style="font-size:10pt;"><strong>Ich wünsche dir, dass dein Geburtstag voller Freude, Abenteuer und Entdeckergeist ist!</strong></font>
+</span></h1>
+<p style="line-height:100%;margin-bottom:0cm;text-align:center;"><br>&nbsp;</p>
+`,
   },
   {
     day: 10,

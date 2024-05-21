@@ -29,7 +29,7 @@ export default async function SearchUsersPage({ searchParams, params }: PageNext
 
   if (city) endpoint += `&city=${city}`;
 
-  const usersData: User[] | undefined = endpoint && await fetch(endpoint)
+  const usersData: User[] | undefined = endpoint && await fetch(endpoint, { cache: 'no-store' })
     .then((res) => res.json())
     .then((res) => res)
     .catch((error) => {

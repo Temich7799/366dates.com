@@ -4,7 +4,7 @@ import styles from './Text.module.scss';
 
 interface TextProps extends HTMLAttributes<HTMLElement> {
   readonly tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span';
-  readonly children: ReactNode;
+  readonly children?: ReactNode;
   readonly size?: 'xs' | 's' | 'm' | 'l' | 'xl';
   readonly weight?: 'bold' | 'medium' | 'regular' | 'light' | 'thin';
   readonly className?: string;

@@ -29,7 +29,7 @@ export const BirthdayText: React.FC<BirthdayTextProps> = ({ month, day, language
 
   return birthday && (
     <div>
-      <Text tag='p' className={styles.text}>{birthday.text}</Text>
+      <section className={styles.text} dangerouslySetInnerHTML={{ __html: birthday.text }}></section>
     </div>
   )
 }

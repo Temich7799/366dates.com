@@ -44,7 +44,7 @@ const NewUserFormInitial: React.FC<NewUserFormInitialProps> = React.memo(({ mont
         day: `${initialDay}`,
         name: '',
         note: '',
-        month_name: '',
+        month_name: getMonthName(initialMonthIndex),
         id: ''
     }));
 
@@ -69,13 +69,13 @@ const NewUserFormInitial: React.FC<NewUserFormInitialProps> = React.memo(({ mont
                     day: `${initialDay}`,
                     name: '',
                     note: '',
-                    month_name: getMonthName(initialMonthIndex),
+                    month_name: ''
                 })
-            })
+            });
     }, [formData]);
 
     const handleChange = useCallback((value: string | number, key: string) => {
-        setFormData(prevData => ({ ...prevData, [key]: value }));
+        setFormData(prevData => ({ ...prevData, [key]: value, month_name: key === 'month' && getMonthName(value as any) as any }));
     }, [formData.month, formData.day]);
 
     const onChangeHandler = useCallback(({ target }: React.ChangeEvent<any>, key: string) => {
