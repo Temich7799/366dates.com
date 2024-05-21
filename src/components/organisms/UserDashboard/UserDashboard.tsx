@@ -58,10 +58,11 @@ const UserDashboard: React.FC<UserDashboardProps> = ({
 
     const fetchFriendsData = async (userId: string) => {
         try {
-            const response = await fetch('http://localhost:3000/api/' + 'getAllUserFriends', {
+            const response = await fetch('/api/' + 'getAllUserFriends', {
                 method: 'POST',
                 body: JSON.stringify({ userId }),
-                cache: 'no-store'
+                cache: 'no-store',
+                mode: 'no-cors',
             });
             const data = await response.json();
             setFriendsData(data);
