@@ -31,20 +31,6 @@ interface UserDashboardProps {
     userId: string;
 }
 
-const fetchFriendsData = async (userId: string) => {
-    try {
-        const response = await fetch(process.env.NEXT_API_BASE_URL + 'getAllUserFriends', {
-            method: 'POST',
-            body: JSON.stringify({ userId })
-        });
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error(error);
-        return [];
-    }
-};
-
 const UserDashboard: React.FC<UserDashboardProps> = ({
     addFriendTitle,
     upcomingFriendsTitle,
@@ -70,9 +56,24 @@ const UserDashboard: React.FC<UserDashboardProps> = ({
         setFriendsData(updatedFriends as User[]);
     }
 
+    const fetchFriendsData = async (userId: string) => {
+        try {
+            const response = await fetch('http://localhost:3000/api/' + 'getAllUserFriends', {
+                method: 'POST',
+                body: JSON.stringify({ userId }),
+                cache: 'no-store'
+            });
+            const data = await response.json();
+            setFriendsData(data);
+            // return data;
+        } catch (error) {
+            console.error(error);
+            return [];
+        }
+    };
+
     useEffect(() => {
-        const friendsData: User[] = await fetchFriendsData(userId);
-        setFriendsData(friendsData);
+        fetchFriendsData(userId);
     }, []);
 
     useEffect(() => {
