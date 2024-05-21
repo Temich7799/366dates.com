@@ -2,7 +2,6 @@ import { Text } from '@/components/atoms/Text/Text';
 import StyledSearchPage from '@/components/molecules/StyledSearchPage/StyledSearchPage';
 import { PageNextProps } from '@/ts/PageNextPropsType';
 import useMonths from '@/hooks/useMonths';
-import { User } from '@/ts/UserType';
 import { useTranslation } from '../../../../i18n';
 import Header from '@/components/molecules/Header/Header';
 import Link from 'next/link';
@@ -15,20 +14,6 @@ export const metadata = {
     description: 'Tauchen Sie ein in die faszinierende Welt unserer Geschichten, inspirierenden Artikel und unterhaltsamen Fakten über Feiern und Treffen!'
 }
 
-const fetchFriendsData = async (userId: string) => {
-    try {
-        const response = await fetch(process.env.NEXT_API_BASE_URL + 'getAllUserFriends', {
-            method: 'POST',
-            body: JSON.stringify({ userId })
-        });
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error(error);
-        return [];
-    }
-};
-
 const UserPage: React.FC<PageNextProps> = async ({ params, searchParams }) => {
 
     const { userId, language } = params;
@@ -37,8 +22,6 @@ const UserPage: React.FC<PageNextProps> = async ({ params, searchParams }) => {
 
     const date = new Date();
     const { day: currentDay = date.getDate(), month: currentMonthIndex = date.getMonth() + 1, city } = searchParams;
-
-    const friendsData: User[] = await fetchFriendsData(userId);
 
     const placeholders = {
         newUserSuccessMessage: t('new_user_success'),
@@ -62,7 +45,6 @@ const UserPage: React.FC<PageNextProps> = async ({ params, searchParams }) => {
                 addFriendTitle={t('add_friend')}
                 myFriendsTitle={t('my_friends')}
                 upcomingFriendsTitle={t('upcoming_birthdays')}
-                friendsData={friendsData}
                 language={language}
                 months={months}
                 currentDay={currentDay as string}

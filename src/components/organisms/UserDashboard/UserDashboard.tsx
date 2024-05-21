@@ -14,7 +14,7 @@ interface UserDashboardProps {
     myFriendsTitle: string;
     upcomingFriendsTitle: string;
     addFriendButtonText: string;
-    friendsData: User[];
+    friendsData?: User[];
     months: Array<Month>;
     currentDay: string | number;
     currentMonthIndex: string | number;
@@ -31,6 +31,20 @@ interface UserDashboardProps {
     userId: string;
 }
 
+const fetchFriendsData = async (userId: string) => {
+    try {
+        const response = await fetch(process.env.NEXT_API_BASE_URL + 'getAllUserFriends', {
+            method: 'POST',
+            body: JSON.stringify({ userId })
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error(error);
+        return [];
+    }
+};
+
 const UserDashboard: React.FC<UserDashboardProps> = ({
     addFriendTitle,
     upcomingFriendsTitle,
@@ -43,7 +57,7 @@ const UserDashboard: React.FC<UserDashboardProps> = ({
     userId,
     placeholders
 }) => {
-    const [friendsData, setFriendsData] = useState<User[]>(friendsDataInitial);
+    const [friendsData, setFriendsData] = useState<User[]>(friendsDataInitial = []);
     const [upcomingFriendsData, setUpcomingFriendData] = useState<User[]>([]);
 
     const handleFormSubmit = (newFriendData: { month: string; day: string; name: string; note?: string }) => {
@@ -55,6 +69,11 @@ const UserDashboard: React.FC<UserDashboardProps> = ({
         ];
         setFriendsData(updatedFriends as User[]);
     }
+
+    useEffect(() => {
+        const friendsData: User[] = await fetchFriendsData(userId);
+        setFriendsData(friendsData);
+    }, []);
 
     useEffect(() => {
         const upcomingFriends: User[] = friendsData.map(friend => {
