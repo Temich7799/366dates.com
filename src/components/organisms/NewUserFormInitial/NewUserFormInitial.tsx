@@ -7,7 +7,6 @@ import { Input } from '@/components/atoms/Input';
 import { Text } from '@/components/atoms/Text/Text';
 import StyledForm from '@/components/molecules/StyledForm/StyledForm';
 import DaysUntilBirthdayText from '@/components/molecules/DaysUntilBirthdayText/DaysUntilBirthdayText';
-import { useLanguageContext } from '@/contexts/CurrentLanguageContext';
 import { Month } from '@/ts/MonthType';
 import styles from './NewUserFormInitial.module.scss'
 import CitySelect from '@/components/atoms/Input/CitySelect/CitySelect';
@@ -64,13 +63,14 @@ const NewUserFormInitial: React.FC<NewUserFormInitialProps> = React.memo(({ mont
         onSubmitHandler && onSubmitHandler(formData);
         register({ ...formData, email: generateRandomEmail(), password: 'nopass' })
             .then(() => {
-                setFormData({
-                    month: `${initialMonthIndex}`,
-                    day: `${initialDay}`,
-                    name: '',
-                    note: '',
-                    month_name: ''
-                })
+                // setFormData({
+                //     month: `${initialMonthIndex}`,
+                //     day: `${initialDay}`,
+                //     name: '',
+                //     note: '',
+                //     month_name: ''
+                // })
+                document.location.reload();
             });
     }, [formData]);
 
@@ -82,9 +82,9 @@ const NewUserFormInitial: React.FC<NewUserFormInitialProps> = React.memo(({ mont
         setFormData(prevData => ({ ...prevData, [key]: target.value }));
     }, []);
 
-    useEffect(() => {
-        setBirthday(`${formData.day}/${formData.month}`);
-    }, [formData]);
+    // useEffect(() => {
+    //     setBirthday(`${formData.day}/${formData.month}`);
+    // }, [formData]);
 
     useEffect(() => {
         if (data.data) {
