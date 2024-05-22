@@ -36,7 +36,7 @@ export async function POST(req, res) {
             FROM friendships f
             INNER JOIN users u ON u.id = f.friend_id
             WHERE f.user_id = ?
-            ORDER BY u.city
+            ORDER BY f.friend_id DESC
         `;
 
         const [results, fields] = await connection.query(query, [userId]);
