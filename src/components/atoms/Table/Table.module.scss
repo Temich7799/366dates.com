@@ -1,5 +1,6 @@
 .table {
     width: 100%;
+    display: block;
     table-layout: fixed;
     text-align: center;
     word-wrap: break-word;
@@ -7,6 +8,7 @@
     border-collapse: separate;
     border-spacing: 0;
     overflow-y: auto;
+    overflow-x: scroll;
 
     tr,
     td,
@@ -16,10 +18,11 @@
 
     th {
         padding: 4px;
+        width: 100px;
     }
 
-    tbody{
-        height: 400px; 
+    tbody {
+        height: 400px;
     }
 
     td {
@@ -29,10 +32,12 @@
 }
 
 .pagination {
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 15px;
 
     >* {
         margin: 0 5px;
