@@ -12,7 +12,7 @@ export const languages: Array<Language> = [
   { code: 'en', name: 'English', nativeName: 'English' },
   { code: 'fi', name: 'Finnish', nativeName: 'suomi, suomen kieli' },
   { code: 'fr', name: 'French', nativeName: 'français, langue française' },
-  { code: 'de', name: 'German', nativeName: 'Deine Sprache' },
+  { code: 'de', name: 'German', nativeName: 'Deutsch' },
   { code: 'el', name: 'Greek, Modern', nativeName: 'ελληνικά' },
   { code: 'hi', name: 'Hindi', nativeName: 'हिन्दी, हिंदी' },
   { code: 'hu', name: 'Hungarian', nativeName: 'magyar' },
