@@ -1,6 +1,5 @@
 .table {
     width: 100%;
-    display: block;
     table-layout: fixed;
     text-align: center;
     word-wrap: break-word;
@@ -9,6 +8,10 @@
     border-spacing: 0;
     overflow-y: auto;
     overflow-x: scroll;
+
+    @media screen and (max-width: 750px) {
+        display: block;
+    }
 
     tr,
     td,
