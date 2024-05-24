@@ -43,8 +43,11 @@ export async function GET(req, res) {
         }
 
         const user = results[0];
+        const decryptedPassword = decryptObject(user.password, process.env.NEXT_SECRET_KEY);
+        
+        const passwordMatch = decryptedPassword === password;
 
-        if (user.email !== email || !bcrypt.compareSync(password, user.password)) {
+        if (user.email !== email || !passwordMatch) {
             return Response.json('Email or password do not match', {
                 status: 401
             });

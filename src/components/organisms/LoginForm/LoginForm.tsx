@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Input } from '@/components/atoms/Input';
@@ -14,14 +14,13 @@ import { useRouter } from 'next/navigation';
 type LoginFormProps = {
     buttonTitle: string;
     registerButtonTitle: string;
+    forgotPasswordTitle: string;
     placeholders: {
         passwordPlaceholder?: string;
     }
 }
 
-const LoginForm: React.FC<LoginFormProps> = ({ buttonTitle, registerButtonTitle, placeholders = {} }) => {
-
-    const { language } = useLanguageContext();
+const LoginForm: React.FC<LoginFormProps> = ({ buttonTitle, forgotPasswordTitle, registerButtonTitle, placeholders = {} }) => {
 
     const router = useRouter();
 
@@ -62,6 +61,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ buttonTitle, registerButtonTitle,
                 <Button type="submit" disabled={isLoading}>{isLoading ? 'Logging in...' : buttonTitle}</Button>
                 <Link href="/auth/sign-up"><Button>{registerButtonTitle}</Button></Link>
             </form>
+            <Link href="/auth/forgot-password">{forgotPasswordTitle}</Link>
         </StyledForm>
     );
 };

@@ -1,6 +1,6 @@
 import getMonthName from '@/utils/getMonthName';
 import { getConnection } from '../../../../src/lib/db';
-import bcrypt from 'bcrypt';
+import encryptObject from '@/utils/encryptObject';
 
 export async function POST(req, res) {
     const data = await req.json();
@@ -41,12 +41,12 @@ export async function POST(req, res) {
             });
         }
 
-        const hashedPassword = await bcrypt.hash(password, 10);
+        const encryptedPassword = encryptObject(password, process.env.NEXT_SECRET_KEY);
 
         const monthName = getMonthName(month);
 
         const query = 'INSERT INTO users (name, day, month, month_name, city, `language`, `foreign`, another_foreign, email, note, `password`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
-        const [result] = await connection.query(query, [name, day, month, monthName, city, language, foreign, another_foreign, email, note, hashedPassword]);
+        const [result] = await connection.query(query, [name, day, month, monthName, city, language, foreign, another_foreign, email, note, encryptedPassword]);
 
         return Response.json({
             data: {

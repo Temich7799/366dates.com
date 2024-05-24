@@ -24,7 +24,16 @@ export const authApi: any = createApi({
         credentials: 'include'
       }),
     }),
+    remind: builder.mutation({
+      query: (email) => ({
+        url: `/api/remind`,
+        method: 'POST',
+        body: {
+          email
+        }
+      }),
+    }),
   }),
 });
 
-export const { useRegisterMutation, useLoginMutation, useLazyMeQuery } = authApi;
+export const { useRegisterMutation, useLoginMutation, useLazyMeQuery, useRemindMutation } = authApi;

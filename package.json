@@ -23,6 +23,7 @@
     "next": "14.2.1",
     "next-auth": "^5.0.0-beta.17",
     "next-cookies": "^2.0.3",
+    "nodemailer": "^6.9.13",
     "react": "^18",
     "react-cookie": "^7.1.4",
     "react-cookie-consent": "^9.0.0",

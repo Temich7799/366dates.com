@@ -16,11 +16,9 @@ export default async function LoginPage({ params }: PageNextProps) {
   const { t } = await useTranslation(language);
 
   return (
-    <>
-      <div className={styles.signup}>
-        <Text tag='h1'>{t('login')}</Text>
-        <LoginForm buttonTitle={t('login')} placeholders={{ passwordPlaceholder: t('password_holder') }} registerButtonTitle={t('sign-up')} />
-      </div>
-    </>
+    <div className={styles.signup}>
+      <Text tag='h1'>{t('login')}</Text>
+      <LoginForm forgotPasswordTitle={t('forgot')} buttonTitle={t('login')} placeholders={{ passwordPlaceholder: t('password_holder') }} registerButtonTitle={t('sign-up')} />
+    </div>
   );
 }

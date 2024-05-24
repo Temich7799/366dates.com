@@ -1,7 +1,6 @@
 import {
     getConnection
 } from '../../../../src/lib/db';
-import bcrypt from 'bcrypt';
 import {
     serialize
 } from 'cookie';
@@ -9,6 +8,7 @@ import {
     NextResponse
 } from 'next/server';
 import encryptObject from '@/utils/encryptObject';
+import decryptObject from '@/utils/decryptObject';
 
 export async function POST(req, res) {
 
@@ -37,7 +37,9 @@ export async function POST(req, res) {
         }
 
         const user = results[0];
-        const passwordMatch = await bcrypt.compare(password, user.password);
+        const decryptedPassword = decryptObject(user.password, process.env.NEXT_SECRET_KEY);
+        
+        const passwordMatch = decryptedPassword === password;
 
         if (!passwordMatch) {
             return Response.json('Invalid password', {
